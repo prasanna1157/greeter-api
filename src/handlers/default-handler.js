@@ -3,17 +3,16 @@
 exports.handler = async (event) => {
   const response = {
       statusCode: 200,
-      body: JSON.stringify(getGreeting()),
+      body: JSON.stringify(greet()),
   };
   return response;
 };
 
-  function getGreeting() {
-    return getLocalGreeting(pickLocale()).concat((" from Moneycatcha!"));
-  }
-  module.exports.getGreeting = getGreeting;
+function greet() {
+    return generateGreetingBy(pickLocale()).concat((" from Moneycatcha!"));
+}
 
-  function getLocalGreeting(language) {
+function generateGreetingBy(language) {
     switch(language) {
       case "en":
         return "Hello";
@@ -26,11 +25,13 @@ exports.handler = async (event) => {
       default:
         return "👋";
     }
-  }
-  module.exports.getLocalGreeting = getLocalGreeting;
+}
   
-  function pickLocale() {
+function pickLocale() {
     const languages = ["en", "es", "cn", "fr", "ru", "tamil"];
     return languages [Math.floor(Math.random() * languages.length)];
-  }
+}
+
+module.exports.greet = greet;
+module.exports.generateGreetingBy = generateGreetingBy;
 

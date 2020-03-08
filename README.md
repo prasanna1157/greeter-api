@@ -1,5 +1,5 @@
 # Simple HTTP Endpoint Example
-This example contains a single REST endpoint that greets users in multiple languages. The HTTP endpoint is exposed as /greeting.
+This example contains a single REST endpoint that greets users in a different language each time it's accessed. It can speak a few different languages. The HTTP endpoint is exposed as /greeting.
 
 ## Service Information
 
